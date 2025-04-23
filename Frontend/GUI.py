@@ -353,7 +353,7 @@ class CustomTopBar(QWidget):
         self.draggable = True
         self.offset = None
     
-     def paintEvent(self, event):
+    def paintEvent(self, event):
         painter = QPainter(self)
         painter.fillRect(self.rect(), Qt.white)
         super().paintEvent(event)
