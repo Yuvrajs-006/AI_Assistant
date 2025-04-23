@@ -161,3 +161,11 @@ def MainExecution():
                 return True
 
 
+            elif "exit" in Queries:
+                QueryFinal = "Okay, Bye!"
+                Answer = ChatBot(QueryModifier(QueryFinal))
+                ShowTextToScreen(f"{Assistantname} : {Answer}")
+                SetAssistantStatus("Answering...")
+                TextToSpeech(Answer)
+                SetAssistantStatus("Answering...")
+                os._exit(1)
