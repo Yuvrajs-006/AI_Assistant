@@ -169,3 +169,22 @@ def MainExecution():
                 TextToSpeech(Answer)
                 SetAssistantStatus("Answering...")
                 os._exit(1)
+def FirstThread(): 
+    while True:
+        CurrentStatus = GetMicrophoneStatus()
+
+        if CurrentStatus == "True":
+            MainExecution()
+
+        else:
+            AIStatus = GetAssistantStatus()
+
+            if "Available..." in AIStatus:
+                sleep(0.1)
+            else:
+                SetAssistantStatus("Available...")  
+                
+if __name__ == "__main__":
+    thread2 = threading.Thread(target=FirstThread, daemon=True)
+    thread2.start()
+    SecondThread()
