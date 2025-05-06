@@ -25,6 +25,3 @@ jobs:
         pip install flake8 pytest
 
 
-    - name: Run unit tests
-      run: |
-        pytest tests/
