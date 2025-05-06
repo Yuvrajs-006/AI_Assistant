@@ -183,3 +183,8 @@ def FirstThread():
                 sleep(0.1)
             else:
                 SetAssistantStatus("Available...")  
+                
+if __name__ == "__main__":
+    thread2 = threading.Thread(target=FirstThread, daemon=True)
+    thread2.start()
+    SecondThread()
