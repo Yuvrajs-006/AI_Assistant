@@ -173,7 +173,7 @@ def FirstThread():
     while True:
         CurrentStatus = GetMicrophoneStatus()
 
-        if CurrentStatus ==  "True":
+        if CurrentStatus == "True":
             MainExecution()
 
         else:
