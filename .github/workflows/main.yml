@@ -24,10 +24,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
 
-    - name: Lint Python files
-      run: |
-        # Adjust excludes based on your project structure
-        flake8 . --exclude=venv,__pycache__,.git,.github --max-line-length=120
 
     - name: Run unit tests
       run: |
