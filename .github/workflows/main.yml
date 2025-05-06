@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-and-lint:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,17 +22,13 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8  # For linting
+        pip install flake8 pytest
 
     - name: Lint Python files
       run: |
-        flake8 . --exclude=venv,__pycache__ --max-line-length=120
+        # Adjust excludes based on your project structure
+        flake8 . --exclude=venv,__pycache__,.git,.github --max-line-length=120
 
-    # Optional: Run tests (uncomment if you have tests)
-    # - name: Run unit tests
-    #   run: |
-    #     pytest
-
-    - name: Simulate Jarvis run (headless)
+    - name: Run unit tests
       run: |
-        echo "Jarvis run skipped in CI (PyQt5 GUI cannot run in headless mode)"
+        pytest tests/
